@@ -61,6 +61,12 @@
                                 <input id="nome" name="nome" type="text" class="form-control">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="text0" class="col-form-label">Xp do personagem</label>
+                            <div class="">
+                                <input id="xp" name="xp" type="text" class="form-control">
+                            </div>
+                        </div>
 
                         <br>
 
