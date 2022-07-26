@@ -140,42 +140,42 @@
                         <div class="form-group">
                             <label for="text1" class="col-form-label">Força</label>
                             <div class="">
-                                <input id="str" name="str" type="text" class="form-control" class="att">
+                                <input id="str" name="str" type="text" class="form-control att">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="text" class="col-form-label">Destreza</label>
                             <div class="">
-                                <input id="dex" name="dex" type="text" class="form-control" class="att">
+                                <input id="dex" name="dex" type="text" class="form-control att">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="text2" class="col-form-label">Constituição</label>
                             <div class="">
-                                <input id="con" name="con" type="text" class="form-control" class="att">
+                                <input id="con" name="con" type="text" class="form-control att">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="text3" class="col-form-label">Inteligencia</label>
                             <div class="">
-                                <input id="int" name="int" type="text" class="form-control" class="att">
+                                <input id="int" name="int" type="text" class="form-control att">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="text4" class="col-form-label">Sabedoria</label>
                             <div class="">
-                                <input id="wis" name="wis" type="text" class="form-control" class="att">
+                                <input id="wis" name="wis" type="text" class="form-control att">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="text5" class="col-form-label">Carisma</label>
                             <div class="">
-                                <input id="char" name="char" type="text" class="form-control mb-3">
+                                <input id="char" name="char" type="text" class="form-control mb-3 att">
                             </div>
                         </div>
 
@@ -273,20 +273,30 @@
                     </form>
                 </div>
 
-                <div class="col-5 justify-content-center">
+                <div class="col-6 justify-content-center d-flex">
                     <div class="form-group">
-                        <div class="">
-                            <button onclick="att()" class="btn btn-dark btn-lg mt-5">🎲Rolar Força🎲</button>
+                        <div class="align-bottom">
                             <br>
-                            <button onclick="att()" class="btn btn-dark btn-lg mt-5">🎲Rolar Destreza🎲</button>
                             <br>
-                            <button onclick="att()" class="btn btn-dark btn-lg mt-5">🎲Rolar Constituição🎲</button>
                             <br>
-                            <button onclick="att()" class="btn btn-dark btn-lg mt-5">🎲Rolar Inteligencia🎲</button>
                             <br>
-                            <button onclick="att()" class="btn btn-dark btn-lg mt-5">🎲Rolar Sabedoria🎲</button>
                             <br>
-                            <button onclick="att()" class="btn btn-dark btn-lg mt-5">🎲Rolar Carisma🎲</button>
+                            <br>
+                            <br>
+                            <br><br>
+
+                            <button onclick="att('str')" class="btn btn-dark mt-4">🎲Rolar Força🎲</button>
+                            <br>
+                            <button onclick="att('dex')" class="btn btn-dark mt-5">🎲Rolar Destreza🎲</button>
+                            <br>
+                            <button onclick="att('con')" class="btn btn-dark mt-5">🎲Rolar Constituição🎲</button>
+                            <button onclick="inputers()" class="btn btn-dark mt-5">🎲Rolar Tudo🎲</button>
+                            <br>
+                            <button onclick="att('int')" class="btn btn-dark mt-5">🎲Rolar Inteligencia🎲</button>
+                            <br>
+                            <button onclick="att('wis')" class="btn btn-dark mt-5">🎲Rolar Sabedoria🎲</button>
+                            <br>
+                            <button onclick="att('char')" class="btn btn-dark mt-5">🎲Rolar Carisma🎲</button>
                         </div>
                     </div>
                 </div>
@@ -307,10 +317,17 @@
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
-        function att() {
-                return document.getElementById(atributos[x]).value = dado(3,18);
+        function att(id) {
+            return document.getElementById(id).value = dado(3, 18);
         }
 
+        function inputers() {
+            var saas = document.getElementsByClassName('att')
+
+            for (let i = 0; i < saas.length; i++) {
+                saas[i].value = dado(3, 18);
+            }
+        }
     </script>
     <script src="pericias.js"></script>
 
