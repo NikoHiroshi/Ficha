@@ -18,18 +18,16 @@
 <body>
 
     <?php
+    //Variavel dos atributo
     $str = 0;
     $dex = 0;
     $con = 0;
     $int = 0;
     $wis = 0;
     $char = 0;
-
-
-
     ?>
 
-
+    <!-- NAVBAR ZICA -->
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="index.php">OTOPUS</a>
@@ -39,10 +37,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="ficha.php">Ficha</a>
+                        <a class="nav-link active text-white" aria-current="page" href="ficha.php">Ficha</a> <!--Link da ficha-->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="dado.php">Dados</a>
+                        <a class="nav-link active text-white" aria-current="page" href="dado.php">Dados</a> <!--Link dos dados-->
                     </li>
                 </ul>
             </div>
@@ -50,6 +48,7 @@
     </nav>
 
 
+    <!-- Form da ficha tudo bunitin -->
     <div class="container">
         <div class="card">
             <div class="card-header text-center bg-dark text-white mt-5">Ficha</div>
@@ -59,13 +58,13 @@
                     <form action="ficha.php" method="POST">
 
                         <div class="form-group">
-                            <label for="text0" class="col-form-label">Insira o nome do seu personagem</label>
+                            <label for="text0" class="col-form-label">Insira o nome do seu personagem</label> <!--Coloca o nome do personagi-->
                             <div class="">
                                 <input id="nome" name="nome" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="text0" class="col-form-label">Xp do personagem</label>
+                            <label for="text0" class="col-form-label">Xp do personagem</label> <!--Colocar o quanto de xp vc tem-->
                             <div class="">
                                 <input id="xp" name="xp" type="text" class="form-control">
                             </div>
@@ -73,6 +72,7 @@
 
                         <br>
 
+                        <!--Selecione sua classe por esse dropdown pica-->
                         <div class="form-group mb-3 ">
                             <label for="classes">Selecione sua classe:_______</label>
                             <select class="form-group" name="classes">
@@ -93,6 +93,7 @@
 
                             <br>
 
+                            <!--Selecione sua raça no dropas--->
                             <label for="classes">Selecione sua raça:_________ </label>
                             <select class="form-group" name="raças">
                                 <option value="" disabled selected>--- Selecione ---</option>
@@ -109,6 +110,7 @@
 
                             <br>
 
+                            <!--Antecedas no dropdown-->
                             <label for="classes">Selecione seu antecedente: </label>
                             <select class="form-group" name="antecedentes">
                                 <option value="" disabled selected>--- Selecione ---</option>
@@ -129,6 +131,7 @@
 
                             <br>
 
+                            <!--Alinhamento do cria no dropas-->
                             <label for="classes">Selecione seu alinhamento: </label>
                             <select class="form-group" name="alinhamentos">
                                 <option value="" disabled selected>--- Selecione ---</option>
@@ -146,6 +149,7 @@
 
                         <hr>
 
+                        <!--Força de cria-->
                         <div class="form-group">
                             <label for="text1" class="col-form-label">Força</label>
                             <div class="">
@@ -153,6 +157,7 @@
                             </div>
                         </div>
 
+                        <!--Destreza de cria-->
                         <div class="form-group ">
                             <label for="text" class="col-form-label">Destreza</label>
                             <div class="">
@@ -160,6 +165,7 @@
                             </div>
                         </div>
 
+                        <!--Constituição de cria-->
                         <div class="form-group ">
                             <label for="text2" class="col-form-label">Constituição</label>
                             <div class="">
@@ -167,6 +173,7 @@
                             </div>
                         </div>
 
+                        <!--Inteligencia de cria-->
                         <div class="form-group ">
                             <label for="text3" class="col-form-label">Inteligencia</label>
                             <div class="">
@@ -174,6 +181,7 @@
                             </div>
                         </div>
 
+                        <!--Sabedoria de cria-->
                         <div class="form-group ">
                             <label for="text4" class="col-form-label">Sabedoria</label>
                             <div class="">
@@ -181,6 +189,7 @@
                             </div>
                         </div>
 
+                        <!--Carisma de cria-->
                         <div class="form-group ">
                             <label for="text5" class="col-form-label">Carisma</label>
                             <div class="">
@@ -191,6 +200,7 @@
                         <br>
                         <hr>
 
+                        <!--Checkboxes das pericias mais brabas do mundo-->
                         <div class="form-group ">
                             <h4>Pericias</h4>
                             <div>
@@ -272,6 +282,7 @@
                             <p id="pericias"></p>
                         </div>
                         <br>
+                        <!--Botaozin de cria-->
                         <div class="form-group">
                             <div class="">
                                 <button name="submit" type="submit" class="btn btn-success">Enviar</button>
@@ -294,6 +305,7 @@
                             <br>
                             <br><br>
 
+                            <!--Botao pra rola os dado um por um, ou todos juntos-->
                             <button onclick="att('str')" class="btn btn-dark mt-4">🎲Rolar Força🎲</button>
                             <br>
                             <button onclick="att('dex')" class="btn btn-dark mt-5">🎲Rolar Destreza🎲</button>
@@ -313,6 +325,7 @@
         </div>
     </div>
     <script>
+        //Array com os atributo
         var atributos = [
             'str',
             'dex',
@@ -322,14 +335,17 @@
             'char'
         ];
 
+        //Funçao pra faze a matematica do dado
         function dado(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
+        //Função pra colocar o resultado do dado em input
         function att(id) {
             return document.getElementById(id).value = dado(3, 18);
         }
 
+        //Função pra colocar em todos os inputs de dado
         function inputers() {
             var saas = document.getElementsByClassName('att')
 
@@ -338,27 +354,28 @@
             }
         }
 
-        function d4() {
-            return Math.floor(Math.random() * 4) + 1;
-        }
-        function d6() {
-            return Math.floor(Math.random() * 6) + 1;
-        }
-        function d8() {
-            return Math.floor(Math.random() * 8) + 1;
-        }
-        function d10() {
-            return Math.floor(Math.random() * 10) + 1;
-        }
-        function d12() {
-            return Math.floor(Math.random() * 12) + 1;
-        }
-        function d20() {
-            return Math.floor(Math.random() * 20) + 1;
-        }
-        function d100() {
-            return Math.floor(Math.random() * 100) + 1;
-        }
+        //Função pra cada dado                                  //
+        function d4() {                                         //
+            return Math.floor(Math.random() * 4) + 1;           //
+        }                                                       //
+        function d6() {                                         //
+            return Math.floor(Math.random() * 6) + 1;           //
+        }                                                       //
+        function d8() {                                         //
+            return Math.floor(Math.random() * 8) + 1;           //
+        }                                                       //
+        function d10() {                                        //
+            return Math.floor(Math.random() * 10) + 1;          //
+        }                                                       //
+        function d12() {                                        //
+            return Math.floor(Math.random() * 12) + 1;          //
+        }                                                       //
+        function d20() {                                        //
+            return Math.floor(Math.random() * 20) + 1;          //
+        }                                                       //
+        function d100() {                                       //
+            return Math.floor(Math.random() * 100) + 1;         //
+        }                                                       //
     </script>
     <script src="pericias.js"></script>
 
