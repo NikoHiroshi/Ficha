@@ -41,6 +41,9 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="ficha.php">Ficha</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="dado.php">Dados</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -333,6 +336,28 @@
             for (let i = 0; i < saas.length; i++) {
                 saas[i].value = dado(3, 18);
             }
+        }
+
+        function d4() {
+            return Math.floor(Math.random() * 4) + 1;
+        }
+        function d6() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+        function d8() {
+            return Math.floor(Math.random() * 8) + 1;
+        }
+        function d10() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+        function d12() {
+            return Math.floor(Math.random() * 12) + 1;
+        }
+        function d20() {
+            return Math.floor(Math.random() * 20) + 1;
+        }
+        function d100() {
+            return Math.floor(Math.random() * 100) + 1;
         }
     </script>
     <script src="pericias.js"></script>
