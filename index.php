@@ -363,7 +363,7 @@
         }                                                       //
         function d8() {                                         //
             return Math.floor(Math.random() * 8) + 1;           //
-        }                                                       //
+        }                                                       ////
         function d10() {                                        //
             return Math.floor(Math.random() * 10) + 1;          //
         }                                                       //
