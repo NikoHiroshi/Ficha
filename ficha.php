@@ -26,6 +26,9 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="dado.php">Dados</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -51,17 +54,20 @@
                     'Paladino' => '10',
                     'Patrulheiro' => '10'
                 ];
-                // $magias = [
-                //     'Bardo' => 'Carisma',
-                //     'Bruxo' => 'Carisma',
-                //     'Clérigo' => 'Sabedoria',
-                //     'Druida' => 'Sabedoria',
-                //     'Feiticeiro' => 'Carisma',
-                //     'Guerreiro' => 'Inteligencia',
-                //     'Ladino' => 'Inteligencia',
-                //     'Mago' => 'Inteligencia',
-                //     'Paladino' => 'Carisma'
-                // ];
+                $magias = [
+                    'Barbaro' => 'Nenhuma',
+                    'Bardo' => 'Carisma',
+                    'Bruxo' => 'Carisma',
+                    'Clérigo' => 'Sabedoria',
+                    'Druida' => 'Sabedoria',
+                    'Feiticeiro' => 'Carisma',
+                    'Guerreiro' => 'Inteligencia',
+                    'Ladino' => 'Inteligencia',
+                    'Mago' => 'Inteligencia',
+                    'Monge' => 'Nenhuma',
+                    'Paladino' => 'Carisma',
+                    'Patrulheiro' => 'Nenhuma'
+                ];
                 $desl = [
                     'Anão' => '7,5m',
                     'Elfo' => '9m',
@@ -99,22 +105,25 @@
                 $x = 0;
                 $p = 0;
                 $nvl = 0;
+                $cdm = 0;
+                $modm = 0;
 
                 $campos = array('Força', 'Destreza', 'Constituição', 'Inteligencia', 'Sabedoria', 'Carisma');
                 $keys = array_keys($_POST);
 
                 //coded by NikoHiroshi :)
                 if (isset($_POST['submit'])) {
-                    if (!empty($_POST['classes'] and $_POST['raças'] and $_POST['antecedentes'] and $_POST['alinhamentos'])) {
+                    if (!empty($_POST['classes'] and $_POST['raças'] and $_POST['antecedentes'] and $_POST['alinhamentos'] and $_POST['pericia'])) {
                         $xispe = $_POST['xp'];
                         $crasse = $_POST['classes'];
                         $raca = $_POST['raças'];
                         $antesc = $_POST['antecedentes'];
                         $aling = $_POST['alinhamentos'];
+                        $pericias = $_POST['pericia'];
                         if ($valor = $_POST[$keys[$x + 6]]) {
                             $ca = 10 + moder($valor);
                         }
-                        if ($valor = $_POST[$keys[$x + 7]]) {
+                        if ($valor = $_POST[$keys[$x + 8]]) {
                             $vida = $classes[$crasse] + moder($valor);
                         }
                         if ($valor = $_POST[$keys[$x + 9]]) {
@@ -201,11 +210,30 @@
                                 $nvl = 20;
                                 $p = $bp['20'];
                                 break;
-                            endswitch;
-                        echo '<b>Nome do seu personagem: </b>' . $_POST["nome"] . ' ' . '<b>Bonus de proficiencia: </b>' . ' +' . $p . ' ' . '<b>Nivel: </b>' . '<b>|</b>' . $nvl . '<b>|</b>' . 
-                        ' ' . '<b>Pontos de Vida: </b>' . '<u>' . $vida . '/' . $vida . '</u>' . '<br>' . '<b>Classe: </b>' . $crasse . ' ' . '<b>|</b>' . 'D' . $classes[$crasse] .
+                        endswitch;
+                        switch ($magias[$crasse]) {
+                            case ($magias[$crasse] == 'Carisma'):
+                                $cdm = 8 + $p + moder($_POST[$keys[$x + 11]]);
+                                $modm = $p + moder($_POST[$keys[$x + 11]]);
+                                break;
+                            case ($magias[$crasse] == 'Sabedoria'):
+                                $cdm = 8 + $p + moder($_POST[$keys[$x + 10]]);
+                                $modm = $p + moder($_POST[$keys[$x + 10]]);
+                                break;
+                            case ($magias[$crasse] == 'Inteligencia'):
+                                $cdm = 8 + $p + moder($_POST[$keys[$x + 9]]);
+                                $modm = $p + moder($_POST[$keys[$x + 9]]);
+                                break;
+                            case ($magias[$crasse] == 'Nenhuma'):
+                                $cdm = 0;
+                                $modm = 0;
+                                break;
+                        }
+                        echo '<b>Nome do seu personagem: </b>' . $_POST["nome"] . ' ' . '<b>Bonus de proficiencia: </b>' . ' +' . $p . ' ' . '<b>Nivel: </b>' . '<b>|</b>' . $nvl . '<b>|</b>' .
+                            ' ' . '<b>Pontos de Vida: </b>' . '<u>' . $vida . '/' . $vida . '</u>' . '<br>' . '<b>Classe: </b>' . $crasse . ' ' . '<b>|</b>' . 'D' . $classes[$crasse] .
                             '<b>|</b>' . ' ' . '<b>Antecendente: </b>' . $antesc . '<br>' . '<b>Raça: </b>' . $raca . ' ' . '<b>Alinhamento: </b>' . $aling . '<br>' .
-                            '<b>Classe de Armadura: </b>' . $ca . ' ' . '<b>Deslocamento: </b>' . $desl[$raca] . '<br>' . '<b>Percepção Passiva</b>' . ' ' . $perpas . '<hr>' . '<br>';
+                            '<b>Classe de Armadura: </b>' . $ca . ' ' . '<b>Deslocamento: </b>' . $desl[$raca] . '<br>' . '<b>Percepção Passiva</b>' . ' ' . $perpas . '<br>' .
+                            '<b>Atributo de conjuração: </b>' . $magias[$crasse] . ' ' . '<b>CD de magia: </b>' . $cdm . ' ' . '<b>Mod magico </b>' . '<b>|</b>' . $modm . '<b>|</b>' . '<hr>' . '<br>';
                     }
                 }
 
@@ -228,10 +256,14 @@
                 echo '<br>' . '<hr>' . '<br>';
                 ?>
 
+                <div>
+                    <p id="pericias"></p>
+                </div>
+
             </div>
         </div>
     </div>
-
+    <script src="pericias.js"></script>
 </body>
 
 </html>
