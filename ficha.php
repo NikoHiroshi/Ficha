@@ -39,6 +39,23 @@
             <div class="card-header bg-dark text-center text-white">Ficha</div>
             <div class="card-body">
                 <?php
+                $valor = 0;
+                $x = 0;
+                $p = 0;
+                $nvl = 0;
+                $cdm = 0;
+                $modm = 0;
+                $modr = 0;
+                $addm = 0;
+                $forc = '';
+                $des = '';
+                $con = '';
+                $int = '';
+                $sab = '';
+                $car = '';
+
+                $campos = array('Força', 'Destreza', 'Constituição', 'Inteligencia', 'Sabedoria', 'Carisma');
+                $keys = array_keys($_POST);
 
                 $classes = [
                     'Barbaro' => '12',
@@ -101,15 +118,6 @@
                     '19' => '6',
                     '20' => '6'
                 ];
-                $valor = 0;
-                $x = 0;
-                $p = 0;
-                $nvl = 0;
-                $cdm = 0;
-                $modm = 0;
-
-                $campos = array('Força', 'Destreza', 'Constituição', 'Inteligencia', 'Sabedoria', 'Carisma');
-                $keys = array_keys($_POST);
 
                 //coded by NikoHiroshi :)
                 if (isset($_POST['submit'])) {
@@ -206,7 +214,7 @@
                                 $nvl = 19;
                                 $p = $bp['19'];
                                 break;
-                            case ($xispe >= 355000 and $xispe < 99999999999999999):
+                            case ($xispe >= 355000 and $xispe < 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999):
                                 $nvl = 20;
                                 $p = $bp['20'];
                                 break;
@@ -237,12 +245,135 @@
                     }
                 }
 
-                //coded by xXFelpera011Xx
+                switch ($raca) {
+                    case ($raca == 'Anão'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        break;
+                    case ($raca == 'Elfo'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        break;
+                    case ($raca == 'Halfling'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        break;
+                    case ($raca == 'Humano'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        $valor = $valor + 1;
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor. ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . ' +1' . '<br>';
+                        break;
+                    case ($raca == 'Draconato'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor + 1 . ' mod: ' . '<b>|</b>' . moder($valor + 1) . '<b>|</b>' . ' +1' . '<br>';
+                        break;
+                    case ($raca == 'Gnomo'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        break;
+                    case ($raca == 'Meio-elfo'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        break;
+                    case ($raca == 'Meio-Orc'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor + 1 . ' mod: ' . '<b>|</b>' . moder($valor + 1) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        break;
+                    case ($raca == 'Tiefling'):
+                        $valor = $_POST[$keys[$x + 6]];
+                        echo '<b>Força: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 7]];
+                        echo '<b>Destreza: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 8]];
+                        echo '<b>Constituição: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 9]];
+                        echo '<b>Inteligência: </b>' . $valor + 1 . ' mod: ' . '<b>|</b>' . moder($valor + 1) . '<b>|</b>' . ' +1' . '<br>';
+                        $valor = $_POST[$keys[$x + 10]];
+                        echo '<b>Sabedoria: </b>' . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
+                        $valor = $_POST[$keys[$x + 11]];
+                        echo '<b>Carisma: </b>' . $valor + 2 . ' mod: ' . '<b>|</b>' . moder($valor + 2) . '<b>|</b>' . ' +2' . '<br>';
+                        break;
 
-                for ($x = 0; $x < 6; $x++) {
-                    $valor = $_POST[$keys[$x + 6]];
-                    echo '<b>' . $campos[$x] . ": </b>" . $valor . ' mod: ' . '<b>|</b>' . moder($valor) . '<b>|</b>' . '<br>';
-                    // $ca = 10;
                 }
 
                 function moder($valor)
